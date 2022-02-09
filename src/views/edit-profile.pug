@@ -1,0 +1,15 @@
+extends base.pug
+
+block content
+    form(method="POST", enctype="multipart/form-data")
+        label(for="avatar") Avatar
+        input(type="file", id="avatar", name="avatar", accept="image/*")
+        input(placeholder="Name", name="name", type ="text", requried, value=loggedInUser.name)
+        input(placeholder="Email", name="email", type ="email", requried,value=loggedInUser.email)
+        input(placeholder="Username", name="username", type ="text", requried,value=loggedInUser.username)
+        input(placeholder="Location", name="location ", type ="text", requried,value=loggedInUser.location)
+        input(type="submit", value="Update Profile")
+        if !loggedInUser.socialOnly
+            hr
+            a(href="change-password") Change Password &rarr;
+        //-url에 /를 붙이면 절대url 로서 url처음부터 바뀜 / 없이 그냥 쓰면 상대 url 로써 끝에만 바뀜
